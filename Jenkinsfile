@@ -1,5 +1,5 @@
 pipeline {
-agent any {
+agent any 
 stages {
 stage('git clone') {
 echo "cloning the git repoo"
@@ -13,7 +13,6 @@ sh "mvn clean package"
 }
 stage('Try Docker') {
 echo "Tod Pod "
-}
 }
 }
 }
