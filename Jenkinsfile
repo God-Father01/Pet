@@ -1,18 +1,25 @@
 pipeline {
-agent any 
-stages {
-stage('git clone') {
-echo "cloning the git repoo"
-sh "git clone https://github.com/God-Father01/Pet.git"
-}
-stage('build') {
+    agent any
 
-echo "Buliding the artifact using Maven"
-sh "mvn clean package"
+    stages {
+        stage('Clone Repository') {
+            steps {
+                echo "Cloning the Git repository"
+                sh "git clone https://github.com/God-Father01/Pet.git"
+            }
+        }
 
-}
-stage('Try Docker') {
-echo "Tod Pod "
-}
-}
+        stage('Build') {
+            steps {
+                echo "Building the artifact using Maven"
+                sh "mvn clean package"
+            }
+        }
+
+        stage('Try Docker') {
+            steps {
+                echo "Docker stage placeholder"
+            }
+        }
+    }
 }
